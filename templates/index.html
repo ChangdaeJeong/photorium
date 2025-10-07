@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photorium - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="app-header">
+        <div class="container">
+            <h1>Photorium</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card" id="gallery-link-card" style="display: none;">
+            <a href="gallery.html" id="gallery-link" class="button-primary">View Full Gallery</a>
+        </section>
+        <section class="card">
+            <div class="card-header-action">
+                <h2>Your Collections</h2>
+                <button type="button" id="open-browser-btn" class="button-primary">Browse & Add...</button>
+            </div>
+            <div id="folder-list">
+                <p>No folders added yet. Add a folder to get started!</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Settings</h2>
+            <div class="setting-item">
+                <label for="grid-size-slider">Default Gallery Grid Size</label>
+                <div class="slider-container">
+                    <input type="range" id="grid-size-slider" min="100" max="260" value="200" step="20">
+                    <span id="grid-size-value">200px</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p><a href="https://github.com/ChangdaeJeong/photorium" target="_blank">Photorium</a> &copy; 2025</p>
+    </footer>
+
+    <!-- Folder Browser Modal -->
+    <div id="folder-browser-modal" class="modal">
+        <div class="modal-content-browser">
+            <div class="modal-header">
+                <h3>Select a Folder</h3>
+                <span id="close-modal-btn" class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="body-controls">
+                    <div id="drive-selector" class="drive-selector"></div>
+                    <div class="count-legend">
+                        <span class="legend-item image-legend">Images</span>
+                        <span class="legend-item video-legend">Videos</span>
+                    </div>
+                </div>
+                <p class="current-path-display"></p>
+                <ul class="directory-list"></ul>
+            </div>
+            <div class="modal-footer">
+                <label class="toggle-hidden-label">
+                    <input type="checkbox" id="show-hidden-toggle"> Show Hidden Files
+                </label>
+                <div class="footer-actions">
+                    <button id="select-folder-btn" class="button-primary">Select This Folder</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='lib/script.js') }}"></script>
+</body>
+</html>
