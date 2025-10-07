@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photorium - Gallery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Gallery</h1>
+    </header>
+
+    <main class="container">
+        <div id="gallery-stats" class="gallery-summary"></div>
+        <div id="image-gallery-grid">
+            <!-- Images will be loaded here by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Modal for viewing full-size images -->
+    <div id="image-modal" class="modal">
+        <span class="close-button">&times;</span>
+        <span class="prev-button">&#10094;</span>
+        <span class="next-button">&#10095;</span>
+        <img class="modal-content" id="modal-image" style="display: none;">
+        <video class="modal-content" id="modal-video" controls style="display: none;"></video>
+    </div>
+
+    <a href="index.html" id="floating-back-btn" title="Back to Home">&#11013;</a>
+
+    <footer class="app-footer">
+        <p>Photorium &copy; 2025</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='lib/gallery.js') }}"></script>
+</body>
+</html>
